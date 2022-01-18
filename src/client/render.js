@@ -33,7 +33,7 @@ function render() {
   renderBackground(me.x, me.y);
 
   // Draw boundaries
-  context.strokeStyle = 'black';
+  context.strokeStyle = 'white';
   context.lineWidth = 1;
   context.strokeRect(canvas.width / 2 - me.x, canvas.height / 2 - me.y, MAP_SIZE, MAP_SIZE);
 
@@ -45,20 +45,23 @@ function render() {
   others.forEach(renderPlayer.bind(null, me));
 }
 
+// eslint-disable-next-line no-unused-vars
 function renderBackground(x, y) {
-  const backgroundX = MAP_SIZE / 2 - x + canvas.width / 2;
-  const backgroundY = MAP_SIZE / 2 - y + canvas.height / 2;
-  const backgroundGradient = context.createRadialGradient(
-    backgroundX,
-    backgroundY,
-    MAP_SIZE / 10,
-    backgroundX,
-    backgroundY,
-    MAP_SIZE / 2,
-  );
-  backgroundGradient.addColorStop(0, 'black');
-  backgroundGradient.addColorStop(1, 'gray');
-  context.fillStyle = backgroundGradient;
+  // const backgroundX = MAP_SIZE / 2 - x + canvas.width / 2;
+  // const backgroundY = MAP_SIZE / 2 - y + canvas.height / 2;
+  // const backgroundGradient = context.createRadialGradient(
+  //   backgroundX,
+  //   backgroundY,
+  //   MAP_SIZE / 10,
+  //   backgroundX,
+  //   backgroundY,
+  //   MAP_SIZE / 2,
+  // );
+  // backgroundGradient.addColorStop(0, 'black');
+  // backgroundGradient.addColorStop(1, 'gray');
+  // context.fillStyle = backgroundGradient;
+
+  context.fillStyle = 'black';
   context.fillRect(0, 0, canvas.width, canvas.height);
 }
 
@@ -116,7 +119,7 @@ function renderMainMenu() {
   renderBackground(x, y);
 }
 
-// Note: you should use requestAnimationFrame() here instead. setInterval works fine,
+// TODO: you should use requestAnimationFrame() here instead. setInterval works fine,
 // but requestAnimationFrame() is specifically made for render loops like this.
 let renderInterval = setInterval(renderMainMenu, 1000 / 60);
 

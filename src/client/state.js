@@ -4,6 +4,7 @@ import { updateLeaderboard } from './leaderboard';
 
 // The "current" state will always be RENDER_DELAY ms behind server time.
 // This makes gameplay smoother and lag less noticeable.
+// TODO: client-side prediction to reduce 100ms input lag
 const RENDER_DELAY = 100;
 
 const gameUpdates = [];
@@ -71,6 +72,8 @@ export function getCurrentState() {
     };
   }
 }
+
+// ---------------------------------------------------------------------------
 
 function interpolateObject(object1, object2, ratio) {
   if (!object2) {
